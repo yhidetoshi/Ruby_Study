@@ -1,0 +1,12 @@
+#block_style
+ - tomato
+ - potato
+
+name: apple
+color: red
+
+# flow_style
+[tomato, potato]
+
+{name: apple, clor: red}
+
