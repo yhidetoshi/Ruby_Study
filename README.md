@@ -1,7 +1,7 @@
 # Ruby_Study
 
 
-### YAMLの書き方
+## YAMLの書き方
 - YAMLとは
   - 構造化されたデータを表現するためのデータ形式の一種。
   - YAML Ain't Markup Language類似の規格としてJSONと近い
@@ -88,4 +88,28 @@ color: red
 
 {name: apple, color: red}
 (実行結果) {"name"=>"apple", "color"=>"red"}
+```
+
+- YAMLのデータ型のまとめ
+  - データ型は自動で認識
+  - 文字列に型変換する時にはダブルクォーテーションで囲む
+
+- yamlでの改行表現
+  - テキストの改行は認識されずスペースに変換される
+```
+doc:
+  aaa
+  bbb
+  ccc
+(実行結果) {"doc"=>"aaa bbb ccc"}
+```
+
+  - (>)を用いて文章の最後の改行のみを認識させる方法
+```
+doc: >
+  aaa
+  bbb
+  ccc
+  
+(実行結果) {"doc"=>"aaa bbb ccc\n"}
 ```
