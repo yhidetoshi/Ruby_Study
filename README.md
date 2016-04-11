@@ -40,3 +40,32 @@ email: potato@hoge.com
 
 (出力結果) {"name"=>"tomato", "email"=>"potato@hoge.com"}
 ```
+
+```
+#input4.yml
+
+name: tomato
+email:
+  mainaddress: potato@hoge.com
+  subaddress: jagaimo@hoge.com
+
+(出力結果) {"name"=>"tomato", "email"=>{"mainaddress"=>"potato@hoge.com", "subaddress"=>"jagaimo@hoge.com"}}
+```
+
+```
+- name : tomato
+  email: tomato@gmail.com
+- name : potato
+  email: potato@gmail.com
+(実行結果) [{"name"=>"tomato", "email"=>"tomato@gmail.com"}, {"name"=>"potato", "email"=>"potato@gmail.com"}]
+```
+
+```
+names :
+  - tomato1
+  - tomato2
+emails:
+  - potato1@gmail.com
+  - potato2@gmail.com
+(実行結果) {"names"=>["tomato1", "tomato2"], "emails"=>["potato1@gmail.com", "potato2@gmail.com"]}
+```
