@@ -69,3 +69,23 @@ emails:
   - potato2@gmail.com
 (実行結果) {"names"=>["tomato1", "tomato2"], "emails"=>["potato1@gmail.com", "potato2@gmail.com"]}
 ```
+
+####ブロックスタイルとフロースタイル
+```
+# ブロックスタイル
+- tomato
+- potato
+(実行結果) ["tomato", "potato"]
+
+name : apple
+color: red
+(実行結果) {"name"=>"apple", "color"=>"red"}
+
+
+# フロースタイル
+[tomato, potato]
+(実行結果) ["tomato", "potato"]
+
+{name: apple, color: red}
+(実行結果) {"name"=>"apple", "color"=>"red"}
+```
