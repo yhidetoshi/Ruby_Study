@@ -182,6 +182,12 @@ namespace :hello do
   end
 end
 ```
+- rakeタスクに追加されているか確認
+```
+$ rake -T                                                [~/ruby-study/rake]
+rake hello:morning  # 朝の挨拶
+rake hello:noon     # 昼の挨拶
+```
 
 (実行結果)
 ```
@@ -189,4 +195,29 @@ $ rake hello:morning
 Good Morning
 $ rake hello:noon
 Good Afternoon
+```
+
+- namespaceを入れ子に
+```
+namespace :hello do
+
+  namespace :morning do
+     desc "丁寧"
+     task :polite do
+         puts 'Good Morning'
+     end
+
+     desc "軽い"
+     task :friendly do
+         puts 'Morning'
+     end
+  end
+end
+```
+(実行結果)
+```
+$ rake hello:morning:polite                 
+Good Morning
+$ rake hello:morning:friendly
+Morning
 ```
