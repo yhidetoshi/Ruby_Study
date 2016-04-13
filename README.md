@@ -153,3 +153,88 @@ doc: |
 ["d1", "d2", "d3"]
 ["x1", "x2"]
 ```
+
+### Rakefileの書き方
+
+- Rake
+  - Rake とはRuby製のビルドプログラムで、プログラム実行を"タスク"という単位でまとめて扱うことが出来る
+- Rakefile
+  - Rakefileの文法は、通常のRubyプログラムにいくつかrake用の記述を追加したもの.
+  - Rubyプログラムで実行可能なことは何でもできる.
+
+**[helloを表示するタスクを作る]**
+Rakefile
+```
+#coding: utf-8
+require 'rake'
+require 'yaml'
+task :default => :hello
+
+namespace :hello do
+  desc "朝の挨拶"
+  task :morning do
+  	puts 'Good Morning'
+  end
+
+  desc "昼の挨拶"
+  task :noon do
+	puts 'Good Afternoon'
+  end
+end
+```
+- **rakeタスクに追加されているか確認**
+```
+$ rake -T                                                [~/ruby-study/rake]
+rake hello:morning  # 朝の挨拶
+rake hello:noon     # 昼の挨拶
+```
+
+**(実行結果)**
+```
+$ rake hello:morning                                     
+Good Morning
+$ rake hello:noon
+Good Afternoon
+```
+
+- **namespaceを入れ子に**
+```
+namespace :hello do
+
+  namespace :morning do
+     desc "丁寧"
+     task :polite do
+         puts 'Good Morning'
+     end
+
+     desc "軽い"
+     task :friendly do
+         puts 'Morning'
+     end
+  end
+end
+```
+**(実行結果)**
+```
+$ rake hello:morning:polite                 
+Good Morning
+$ rake hello:morning:friendly
+Morning
+```
+
+- **引数を渡す**
+[環境変数を利用]
+```
+namespace :hello do
+  task :morning do
+    p ENV['GREETING']
+    p ENV['TO_NAME']
+  end
+end
+```
+**(実行結果)**
+```
+rake hello:morning GREETING="good" TO_NAME="Taou"
+"good"
+"Taou"
+```
