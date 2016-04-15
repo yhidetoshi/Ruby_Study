@@ -45,8 +45,7 @@ p p2.call ('hi')
 =end
 
 people = %w(Tarou Hoge Huga)
-p people.map {|person| person.upcase}
-p people.map(&:upcase)
 
+p people.map {|person| person.upcase}
 
 
