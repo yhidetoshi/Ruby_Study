@@ -1,0 +1,44 @@
+i#coding: utf-8
+require 'rake'
+require 'yaml'
+task :default => :hello
+
+=begin
+namespace :hello do
+  task :morning do
+    p ENV['GREETING']
+    p ENV['TO_NAME']
+  end
+end
+=end
+
+=begin
+namespace :hello do
+  desc "朝の挨拶"
+  task :morning do
+  	puts 'Good Morning'
+  end
+ 
+  desc "昼の挨拶"
+  task :noon do
+	puts 'Good Afternoon'
+  end
+end
+
+namespace :hello do
+
+  namespace :morning do
+     desc "丁寧"
+     task :polite do
+         puts 'Good Morning'
+     end
+ 
+     desc "軽い"
+     task :friendly do
+         puts 'Morning'
+     end
+  end
+end
+
+=end
+
