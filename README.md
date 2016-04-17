@@ -248,3 +248,71 @@ rake hello:morning GREETING="good" TO_NAME="Taou"
 ```
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/ruby-icon.png)
+
+
+**[コメントアウト]**
+```
+# 1行
+
+# 複数行
+=begin
+  puts 'hogehuga'
+=end
+```
+
+**[繰り返し]**
+- **times文**
+```
+4.times do
+  puts 'hogehoge'
+end
+```
+```
+5.times do |i|
+  puts i
+end
+```
+- **for文**
+```
+sum = 0
+for i in 1..5
+  sum = sum + i
+end
+puts sum
+```
+```
+from = 10
+to = 20
+for i in from..to
+  sum = sum += i
+end
+puts sum
+```
+```
+names = ["awk", "Perl", "Java", "Python"]
+for name in names
+   puts name
+end
+```
+- **while文**
+```
+i = 1
+while i < 10
+  puts i
+  i = i +1
+end
+```
+- **each文**
+```
+names = ["Java", "Perl", "Ruby"]
+names.each do |name|
+  puts name
+end
+```
+```
+sum = 0
+(1..5).each do |i|
+  puts i
+end
+```
+
