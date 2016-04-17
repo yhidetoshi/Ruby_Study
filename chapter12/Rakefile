@@ -1,44 +1,61 @@
-i#coding: utf-8
+#coding: utf-8
 require 'rake'
 require 'yaml'
-task :default => :hello
-
 =begin
-namespace :hello do
-  task :morning do
-    p ENV['GREETING']
-    p ENV['TO_NAME']
-  end
+desc 'Task Description'
+task :task_name do
+  puts 'Rake task'
 end
 =end
 
-=begin
-namespace :hello do
-  desc "朝の挨拶"
-  task :morning do
-  	puts 'Good Morning'
-  end
- 
-  desc "昼の挨拶"
-  task :noon do
-	puts 'Good Afternoon'
+TXT_DIR = "#{Dir.pwd}/meals/"
+OUTPUT_DIR = "#{Dir.pwd}/reports/"
+
+FILE_EXT = '.txt'
+MEALS = [
+ {name: 'breakfast' ,label: 'breakfast'},
+ {name: 'lunch'     ,label: 'lunch'},
+ {name: 'dinner'    ,label: 'dinner'}
+]
+
+task :default => :daily_report
+
+desc 'create meal_record for 1day'
+task :daily_report => [:check, :report] do
+  puts 'create meal_record'
+end
+
+desc 'check meal_record'
+task :check do 
+  MEALS.each do |meal|
+    file_name = meal[:name ] + FILE_EXT
+    full_path = TXT_DIR + file_name
+
+    if File.exist?(full_path)
+      puts "#{file_name} OK "
+    else
+      puts "#{file_name} no exist"
+    end
   end
 end
 
-namespace :hello do
+desc "create meal_report"
+task :report do
+  date_str = "Time.now.strftime('%Y%m%d')"
+  output_str = "#{date_str}_record\n\n"
 
-  namespace :morning do
-     desc "丁寧"
-     task :polite do
-         puts 'Good Morning'
-     end
- 
-     desc "軽い"
-     task :friendly do
-         puts 'Morning'
-     end
+  MEALS.each do |meal|
+    file_name = meal[:name] + FILE_EXT
+    full_path = TXT_DIR + file_name
+       description = <<DESC
+#{meal[:label]}
+#{File.read(full_path, :encording => Encoding::UTF_8)}
+DESC
+    output_str += description
   end
+
+output_file = OUTPUT_DIR + "report_#{TIME.now.strftime('%Y%m%d')}.txt"
+File.open(output_file, 'w') {|f|
+  f.write output_str
+  }
 end
-
-=end
-
