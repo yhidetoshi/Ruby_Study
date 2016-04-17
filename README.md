@@ -1,5 +1,13 @@
 # Ruby_Study
 
+<a id="index"></a>
+## <a href="#index">目次</a>
+* [YAML](#anchor1)
+* [Rakefile](#anchor2)
+* [Rubyメモ] (#anchor)
+
+
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/yaml-icon.png)
 
 ## YAMLの書き方
 - YAMLとは
