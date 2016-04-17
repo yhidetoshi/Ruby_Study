@@ -246,3 +246,5 @@ rake hello:morning GREETING="good" TO_NAME="Taou"
 "good"
 "Taou"
 ```
+
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/ruby-icon.png)
