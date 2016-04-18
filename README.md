@@ -361,3 +361,45 @@ p iroha
 # ["a", "i", "u", "e", "o"]
 ```
 
+**[メソッド]**
+```
+def hello(name="hoge")
+   puts name
+end
+
+hello()
+hello("huga")
+```
+```
+def volume(x, y, z)
+  return x + y + z
+end
+
+puts volume(1, 2, 3)
+```
+```
+def max(a, b)
+  if a > b
+    puts a
+  else
+    puts b
+  end
+end
+
+max(5,10)
+```
+
+**[case文]**
+```
+array = ['a', 1, nil]
+array.each do |item|
+   case item
+   when String
+        puts "item is String"
+   when Numeric
+        puts "item is Numeric"
+   else
+        puts "item is something"
+   end
+end
+```
