@@ -19,6 +19,7 @@
  - モジュール
  - 主な組み込みクラス
  - 時間
+ - スレッド
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/yaml-icon.png)
 
@@ -629,4 +630,35 @@ p now.month	      #=> 4
 p now.day	      #=> 17
 p now.hour	      #=> 15
 p now.min	      #=> 51
+```
+ **[スレッド]**
+`thread1.rb`
+```
+t1 = Thread.start {
+  6.times do
+     puts "thread1を実行中"
+     sleep(0.5)
+  end
+}
+3.times do
+  puts "Main_Threadを実行する"
+end
+
+puts "Thread1の終了を待っている"
+t1.join
+puts "Thread1が終わったので,Main_Threadを終了する"
+```
+**実行結果**
+```
+Main_Threadを実行する
+thread1を実行中
+Main_Threadを実行する
+Main_Threadを実行する
+Thread1の終了を待っている
+thread1を実行中
+thread1を実行中
+thread1を実行中
+thread1を実行中
+thread1を実行中
+Thread1が終わったので,Main_Threadを終了する
 ```
