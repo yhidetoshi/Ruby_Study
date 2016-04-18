@@ -16,6 +16,8 @@
    - read/get/rename/mv/chmod/cp/delete/mkdir/pwd/rmdir
  - 継承
  - モジュール
+ - 主な組み込みクラス
+ - 時間
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/yaml-icon.png)
 
@@ -532,4 +534,72 @@ end
 my_object = MyClass.new
 my_object.from_a
 my_object.from_b
+```
+**[主な組込みクラス]**
+```
+# round:四捨五入
+1.3.round #=> 1
+
+# 繰返しstep
+3.step 5 do |num|
+ puts num
+end
+
+# odd?:奇数判定
+1.odd?  #=> true
+
+#偶数判定
+4.even? #=> true
+
+2.next
+2.succ
+2.pred
+30.to_s
+2.to_s(2)
+9.to_s(16)
+123.to_i
+Time.now.to_i
+
+# upto:カウントアップ
+1.upto 3 do |num|
+  puts num
+end
+
+# downto:カウントダウン
+3.downto 1 do |num|
+  puts num
+end
+
+# 配列:最初の要素
+array = [1, 2, 3, 4]
+
+array.first           #=> 1
+array.values_at(1)    #=> [1]
+array.values_at(1..2) #=> [1, 2]
+array.last            #=> 4
+array.length          #=> 4 
+array.empty?          #=> false
+array.include?(4)     #=> true
+array.sample          #=> ランダムで1要素抽出
+array.sample(2)       #=> ランダムで2要素抽出
+array.push 3          #=> 最後に3を追加(スタックに入れるのと同じ)
+array.pop             #=> スタックでいうpop(一番上から取り出す)
+array.delete 3        #=> 3の要素を全て消す
+array.compact         #=> nilを削除
+array.reverse	      #=> 配列を逆順に並べ替える
+array.sort	      #=> 小さい順に並び替える
+array.hash	      #=> ハッシュ化する
+
+a.merge(b)            #=>a配列にb配列をマージする
+```
+**[時間]**
+```
+p Time.now            #=> 2016-04-17 15:51:31 +0900
+
+now = Time.now	      #=>
+p now.year	      #=> 2016
+p now.month	      #=> 4
+p now.day	      #=> 17
+p now.hour	      #=> 15
+p now.min	      #=> 51
 ```
