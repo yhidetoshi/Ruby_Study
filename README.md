@@ -175,6 +175,8 @@ doc: |
 ["x1", "x2"]
 ```
 
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/rake-icon.jpg)
+
 ### Rakefileの書き方
 
 - Rake
