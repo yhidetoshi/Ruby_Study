@@ -403,7 +403,14 @@ array.each do |item|
    end
 end
 ```
+**[標準入力と型変換]**
+```
+num0 = ARGV[0].to_i
+num1 = ARGV[1].to_i
 
+print num0 + num1, "\n"
+puts num0 - num1
+```
 **[File処理]**
 - read (close処理有り)
 ```
@@ -438,6 +445,10 @@ File.rename("before.txt", "after.txt")
 ```
 File.rename('data1.txt', 'backup/data1.txt')
 ```
+- chmod
+```
+File.chmod(0777, "hello.rb")
+```
 - cp
 ```
 FileUtils.cp("data.txt", "backup/data.txt")
@@ -449,4 +460,22 @@ FileUtils.mv("data.txt", "backup/data1.txt")
 - delete
 ```
 File.delete("hoge.txt")
+```
+- mkdir
+```
+Dir.mkdir("temp")
+```
+- pwd
+```
+p Dir.pwd
+
+Dir.chdir("../")
+p Dir.pwd
+
+# "/Users/hidetoshi/ruby-study/basic_confirm"
+# "/Users/hidetoshi/ruby-study"
+```
+- rmdir
+```
+Dir.rmdir("temp")
 ```
