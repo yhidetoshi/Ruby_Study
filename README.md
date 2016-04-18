@@ -316,3 +316,48 @@ sum = 0
 end
 ```
 
+**[配列]**
+- 宣言
+```
+num = [1, 2, 3, 4, 5]
+p num
+
+str = ["hoge", "huga", "hhoogee"]
+p str
+
+# [1, 2, 3, 4, 5]
+# ["hoge", "huga", "hhoogee"]
+```
+
+- Arrayクラス
+```
+a = Array.new
+p a
+
+b = Array.new(5)
+p b
+
+c = Array.new(5, 0)
+p c
+
+# []
+# [nil, nil, nil, nil, nil]
+# [0, 0, 0, 0, 0]
+```
+- hash
+```
+font_table = {:normal => "0", :small => "-1", :big => "+1"}
+p font_table[:normal]
+p font_table[:big]
+
+# "0"
+# "+1"
+```
+- %wで配列を定義
+```
+iroha = %w(a i u e o)
+p iroha
+
+# ["a", "i", "u", "e", "o"]
+```
+
