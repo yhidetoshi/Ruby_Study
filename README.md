@@ -16,6 +16,7 @@
  - File/Dir処理
    - read/get/rename/mv/chmod/cp/delete/mkdir/pwd/rmdir
  - 継承
+   - super 
  - モジュール
  - 主な組み込みクラス
  - 時間
@@ -535,6 +536,29 @@ end
 child = Child.new
 child.hello
  ```
+**[superメソッド]**
+`superメソッドを使うと,スーパークラスにある同名のメソッドを呼び出せる`
+```
+class A
+  def x(str)
+    puts str * 3
+  end
+end
+
+class B < A
+  def x(str)
+    super(str)
+    puts "end"
+  end
+end
+
+b = B.new
+b.x("Hello")
+
+
+#=> HelloHelloHello
+#=> end
+```
  
 **[モジュール]**
 `インスタンス化できないクラスのようなもの`
