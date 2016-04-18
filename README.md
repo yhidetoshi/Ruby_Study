@@ -12,7 +12,7 @@
  - メソッド
  - Case
  - 標準入力と型変換
- - File処理
+ - File/Dir処理
    - read/get/rename/mv/chmod/cp/delete/mkdir/pwd/rmdir
 
 
