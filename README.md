@@ -10,7 +10,6 @@
    - for文
    - while文
    - each文
- -  
 
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/yaml-icon.png)
