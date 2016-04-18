@@ -6,10 +6,14 @@
 * [Rakefile](#anchor2)
 * [Rubyメモ] (#anchor)
  - 繰返し
-   - time文
-   - for文
-   - while文
-   - each文
+   - time/for/while/each
+ - 配列
+ 　- 宣言/Arrayクラス/hash/%w/
+ - メソッド
+ - Case
+ - 標準入力と型変換
+ - File処理
+   - read/get/rename/mv/chmod/cp/delete/mkdir/pwd/rmdir
 
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/yaml-icon.png)
