@@ -8,7 +8,7 @@
  - 繰返し
    - time/for/while/each
  - 配列
- 　- 宣言/Arrayクラス/hash/%w/
+   - 宣言/Arrayクラス/hash/%w/
  - メソッド
  - Case
  - 標準入力と型変換
