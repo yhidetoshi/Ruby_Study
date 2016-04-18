@@ -9,8 +9,9 @@
    - time/for/while/each
  - 配列
    - 宣言/Arrayクラス/hash/%w/
- - メソッド
- - Case
+ - 制御構造/メソッド/組込み関数
+   - 条件分岐 
+   
  - 標準入力と型変換
  - File/Dir処理
    - read/get/rename/mv/chmod/cp/delete/mkdir/pwd/rmdir
@@ -373,7 +374,28 @@ p iroha
 # ["a", "i", "u", "e", "o"]
 ```
 
-**[メソッド]**
+**[制御構造/メソッド/組込み関数]**
+- **制御構造**
+```
+n = 2
+if    n.zero?    #=> 0判定
+elsif n.even?    #=> 偶数判定
+elsif n.odd?     #=> 奇数判定
+```
+
+- **[ブロックの戻り値・引数]**
+`yieldはブロックの戻り値を返す. 最後に評価された式の値`
+```
+def display_value
+  puts yield
+end
+
+display_value do
+  777
+end  #=> 777と表示される
+```
+
+- **メソッド**
 ```
 def hello(name="hoge")
    puts name
