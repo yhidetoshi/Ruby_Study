@@ -14,7 +14,8 @@
  - 標準入力と型変換
  - File/Dir処理
    - read/get/rename/mv/chmod/cp/delete/mkdir/pwd/rmdir
-
+ - 継承
+ - モジュール
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/yaml-icon.png)
 
@@ -487,4 +488,48 @@ p Dir.pwd
 - rmdir
 ```
 Dir.rmdir("temp")
+```
+ **[継承]**
+` class サブクラス < スーパークラス`
+
+ ```
+ class Parent
+  def hello
+      puts "Hello Parent class"
+  end
+end
+
+class Child < Parent
+  def hi
+     puts "Hello Child class"
+  end
+end
+
+child = Child.new
+child.hello
+ ```
+ 
+**[モジュール]**
+`インスタンス化できないクラスのようなもの`
+```
+module ModuleA
+  def from_a
+    puts 'A'
+  end
+end
+
+module ModuleB
+  def from_b
+    puts 'B'
+  end
+end
+
+class MyClass
+  include ModuleA
+  include ModuleB
+end
+
+my_object = MyClass.new
+my_object.from_a
+my_object.from_b
 ```
