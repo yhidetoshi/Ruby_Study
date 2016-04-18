@@ -403,3 +403,50 @@ array.each do |item|
    end
 end
 ```
+
+**[File処理]**
+- read (close処理有り)
+```
+filename = "input_sample.txt"
+file = open(filename)
+text = file.read
+puts text
+file.close
+```
+- read
+```
+filename = "input_sample.txt"
+text = File.read(filename)
+print text
+```
+- get
+```
+filename = "input_sample.txt"
+file = open(filename)
+
+while text = file.gets
+  puts text
+end
+file.close
+```
+
+- rename
+```
+File.rename("before.txt", "after.txt")
+```
+- rename(mv)
+```
+File.rename('data1.txt', 'backup/data1.txt')
+```
+- cp
+```
+FileUtils.cp("data.txt", "backup/data.txt")
+```
+- mv 
+```
+FileUtils.mv("data.txt", "backup/data1.txt")
+```
+- delete
+```
+File.delete("hoge.txt")
+```
