@@ -16,7 +16,7 @@
  - File/Dir処理
    - read/get/rename/mv/chmod/cp/delete/mkdir/pwd/rmdir
  -  オブジェクト指向
-   - クラス定義/インスタンス初期化/アクセスメソッド/継承/super 
+   - クラス定義/インスタンス初期化/アクセスメソッド/継承/super/クラス変数 
  - モジュール
  - 主な組み込みクラス
  - 時間
@@ -654,6 +654,40 @@ b.x("Hello")
 #=> HelloHelloHello
 #=> end
 ```
+- **[クラス変数]**
+`スコープは同じクラスの中`
+ 
+```
+class Hello2
+  @@count = 0
+
+  def Hello2.count
+    @@count
+  end
+
+  def initialize(name)
+    @name
+  end
+
+  def hello
+    puts "Hello #{@name}"
+    @@count += 1
+  end
+end
+
+fred = Hello2.new("Fred")
+puts "Hello count: #{Hello2.count}"
+fred.hello
+fred.hello
+puts "Hello count: #{Hello2.count}"`
+
+#実行結果
+# Hello count: 0
+# Hello
+# Hello
+# Hello count: 2
+ ```
+ 
  
 **[モジュール]**
 `インスタンス化できないクラスのようなもの`
