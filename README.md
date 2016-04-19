@@ -15,8 +15,8 @@
  - 標準入力と型変換
  - File/Dir処理
    - read/get/rename/mv/chmod/cp/delete/mkdir/pwd/rmdir
- - 継承
-   - super 
+ -  オブジェクト指向
+   - クラス定義/インスタンス初期化/アクセスメソッド/継承/super 
  - モジュール
  - 主な組み込みクラス
  - 時間
@@ -517,7 +517,101 @@ p Dir.pwd
 ```
 Dir.rmdir("temp")
 ```
- **[継承]**
+**[オブジェクト指向]**
+
+- **[クラス定義/オブジェクト作成]**
+```
+class Hello
+  def Hello
+    puts "Hello Ruby"
+  end
+
+  def bye
+    puts "Good Bye"
+  end
+end
+
+g = Hello.new
+g.Hello
+g.bye
+
+# 実行結果
+#=> Hello Ruby
+#=> Good Bye
+```
+- **[インスタンス初期化]**
+
+`initialize`メソッドを定義するとインスタンス生成時に自動的に実行される.
+
+`@`で始まる名前の変数はインスタンス変数と言う.
+```
+class Hello
+  def initialize(name)
+     @name = name
+  end
+
+  def hello
+     puts "Hello #{@name}"
+  end
+
+  def bye
+     puts "Bye #{@name}"
+  end
+end
+
+fred = Hello.new("Fred")
+fred.hello
+fred.bye
+
+# 実行結果
+#=> Hello Fred
+#=> Bye Fred
+```
+- **[アクセスメソッド]**
+`インスタンス変数は外部からアクセスできないがインスタンス変数にアクセスできるメソッドを作れば、参照や代入が可能`
+```
+class Linux
+ def distro=(d)
+    @distro = d
+ end
+
+ def version=(v)
+    @version = v
+ end
+
+ def distro
+     @distro
+ end
+
+ def version
+    @version
+ end
+end
+
+c = Linux.new
+c.distro = "CentOS"
+c.version = "6.5"
+puts "#{c.distro} #{c.version}"
+
+#=> CentOS 6.5
+```
+これをアクセスメソッドの`attr_accessor`を使うと下記のようになる
+**[attr_accessorを利用した場合]**
+```
+class Linux
+  attr_accessor :distro, :version
+end
+
+c = Linux.new
+c.distro = "CentOS"
+c.version = "6.5"
+puts "#{c.distro} #{c.version}"
+
+#=> CentOS 6.5
+```
+
+
+ - **[継承]**
 ` class サブクラス < スーパークラス`
 
  ```
@@ -536,7 +630,7 @@ end
 child = Child.new
 child.hello
  ```
-**[superメソッド]**
+- **[superメソッド]**
 `superメソッドを使うと,スーパークラスにある同名のメソッドを呼び出せる`
 ```
 class A
@@ -555,7 +649,7 @@ end
 b = B.new
 b.x("Hello")
 
-
+# 実行結果
 #=> HelloHelloHello
 #=> end
 ```
