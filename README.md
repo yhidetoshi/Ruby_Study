@@ -596,6 +596,7 @@ puts "#{c.distro} #{c.version}"
 #=> CentOS 6.5
 ```
 これをアクセスメソッドの`attr_accessor`を使うと下記のようになる
+
 **[attr_accessorを利用した場合]**
 ```
 class Linux
