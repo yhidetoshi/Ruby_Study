@@ -826,6 +826,7 @@ Thread1が終わったので,Main_Threadを終了する
 |private|メソッドを定義したクラスとサブクラスのインスタンスからのみ呼び出し可能|
 |protected|当該クラスもしくはサブクラスのインスタンスメソッドとして呼び出し可能|
 
+- **[アクセス権限]**
 ```
 class Accesstest
   def public_method
@@ -841,4 +842,26 @@ end
 at = Accesstest.new
 at.public_method
 at.private_method  #=> これはエラーになる
+```
+- **[特異メソッド]**
+
+`特異メソッドは特定のインスタンスのみに属するメソッド`
+
+[特異メソッドの定義]
+```
+def オブジェクト名.メソッド名
+メソッド定義
+end
+```
+
+```
+var1 = "Ruby"
+var2 = "Ruby"
+
+def var1.hello
+  puts "Hello, #{self}"
+end
+
+var1.hello
+var2.hello  #=> これはエラーになる
 ```
