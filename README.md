@@ -21,6 +21,8 @@
  - 主な組み込みクラス
  - 時間
  - スレッド
+ - アクセス権限と特異メソッド
+
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/yaml-icon.png)
 
@@ -815,3 +817,12 @@ thread1を実行中
 thread1を実行中
 Thread1が終わったので,Main_Threadを終了する
 ```
+
+**[アクセス権限と特異メソッド]**
+
+|権限    |内容         |
+|:-----------|:------------|
+|public|どこでも呼び出し可能,class内はデフォルトpublicになる|
+|private|メソッドを定義したクラスとサブクラスのインスタンスからのみ呼び出し可能|
+|protected|当該クラスもしくはサブクラスのインスタンスメソッドとして呼び出し可能|
+
