@@ -18,6 +18,7 @@
  -  オブジェクト指向
    - クラス定義/インスタンス初期化/アクセスメソッド/継承/super/クラス変数 
  - モジュール
+   - Mix-in
  - 主な組み込みクラス
  - 時間
  - スレッド
@@ -692,6 +693,29 @@ puts "Hello count: #{Hello2.count}"`
  
  
 **[モジュール]**
+moduleは`モジュール名.メソッド名`で呼び出せないので`module_function :メソッド名`を使う
+
+```
+module HelloModule
+  def hello
+    puts "Hello, module"
+  end
+
+  def bye
+    puts "Good Bye"
+  end
+  module_function :hello
+end
+
+HelloModule.hello
+
+# 下のようにextendを使う方法もある
+=begin
+o = Object.new
+p o.extend HelloModule
+=end
+```
+
 `インスタンス化できないクラスのようなもの`
 ```
 module ModuleA
@@ -864,4 +888,34 @@ end
 
 var1.hello
 var2.hello  #=> これはエラーになる
+```
+- **[Mix-in]**
+- Rubyは複数のスーパクラスから多重継承をサポートしていない.
+- スーパークラスとは別の機能を使いたい場合はモジュールをincludeして使う
+- Mix-inは制限された多重継承と考える。ある機能を複数のクラスで共有したい場合は、共通する機能をモジュールとして作成し、それをインクルードする
+```
+module HelloModule
+  def hello
+    puts "Hello, module."
+  end
+  module_function :hello
+end
+
+class SuperClass
+  def bye
+    puts "Good-bye."
+  end
+end
+
+class SubClass < SuperClass
+  def chao
+   puts "Chao!"
+  end
+end
+
+include HelloModule
+s = SubClass.new
+s.chao
+hello
+s.bye
 ```
