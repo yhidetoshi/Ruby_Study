@@ -23,6 +23,8 @@
  - 時間
  - スレッド
  - アクセス権限と特異メソッド
+ - 正規表現
+   - マッチ/置換 
 
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/yaml-icon.png)
@@ -918,4 +920,38 @@ s = SubClass.new
 s.chao
 hello
 s.bye
+```
+**[正規表現]**
+
+- **Match**
+```
+if /Ruby/ =~ 'Ruby is a diyanic, open programming language'
+  puts 'match'
+else
+  puts 'not match'
+end
+```
+Stringクラスのmatchメソッドを用いる 
+```
+str = 'Ruby is a dynamic open source programming languages'
+if str.match(/Ruby/)
+  puts 'match'
+else
+  puts 'not match'
+end
+```
+
+- **置換**
+`.sub: 1か所だけ置換`
+`.gsub 全て置換:`
+```
+str = 'Perl PHP Python Perl PHP Python'
+puts str.sub(/Python/, 'Ruby')
+puts str.gsub(/Python/, 'Ruby')
+puts str
+
+# 実行結果
+# Perl PHP Ruby Perl PHP Python
+# Perl PHP Ruby Perl PHP Ruby
+# Perl PHP Python Perl PHP Python
 ```
