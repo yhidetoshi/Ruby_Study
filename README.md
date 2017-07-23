@@ -268,6 +268,14 @@ rake hello:morning GREETING="good" TO_NAME="Taou"
 "good"
 "Taou"
 ```
+- **Directoryを作る**
+```
+task :create_dir do
+    puts 'ディレクトリを作るよ'
+    sh "mkdir ./test_dir"
+end
+```
+
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/Ruby_Study/ruby-icon.png)
 
